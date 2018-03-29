@@ -1,0 +1,22 @@
+{
+  "id": "/mining/cuda-rvn-nevermore-miner-api",
+  "cmd": "/root/multi-process-launcher/multi-process-launcher.py --cmd \"/root/start-apache2.sh $PORT1 $PORT0\" --cmd \"/usr/bin/ccminer -a x16r -o stratum+tcp://xvg-lyra.suprnova.cc:6667 -u greenie.catch-all -p x --api-bind=0.0.0.0:$PORT1 --api-allow=0/0\"",
+  "user": "root",
+  "cpus": 0.5,
+  "gpus": 1,
+  "mem": 512,
+  "disk": 500,
+  "ports": [ 0, 0 ],
+  "instances": 1,
+  "container": {
+    "type": "MESOS",
+    "docker": {
+      "image": "acecile/cuda-nevermore-miner-cuda9",
+      "forcePullImage": true
+    }
+  },
+  "upgradeStrategy": {
+    "maximumOverCapacity": 0,
+    "minimumHealthCapacity": 0
+  }
+}
